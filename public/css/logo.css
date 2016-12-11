@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Coolvetica';
+    src: url('/public/coolvetica.ttf');
+}
+
+@font-face {
+    font-family: 'Liberation Sans';
+    src: url('/public/liberation.ttf');
+}
+
+.ui.exslogo {
+    font-size: 1.8em;
+    font-family: 'Liberation Sans', 'Helvetica', 'Arial', sans-serif !important;
+    font-weight: 100 !important;
+}
+
+.ui.liberation {
+    font-family: 'Liberation Sans', 'Helvetica', 'Arial', sans-serif !important;
+}

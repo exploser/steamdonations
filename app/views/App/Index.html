@@ -1,0 +1,76 @@
+{{template "header.html" .}}
+<style type="text/css">
+    body {
+        background-color: #DADADA;
+        padding-top: 4.5em;
+    }
+
+    body > .grid {
+    }
+
+    .column {
+        max-width: 850px;
+    }
+
+    .special.image {
+        margin: 1em auto 1em auto;
+
+    }
+
+    .ui.statistic {
+        cursor: pointer;
+    }
+
+</style>
+
+<div class="ui top aligned center aligned grid">
+    <div class="row">
+        <div class="column">
+            <div class="blurring dimmable image">
+                <div class="ui auto dimmer">
+                    <div class="content">
+                        <div class="center">
+                            <div class="ui inverted statistics">
+                                <div class="statistic" style="margin: auto;">
+                                    <div class="ui exslogo value">
+                                        E&times;S
+                                    </div>
+                                    <div class="label">
+                                        Unturned
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="/public/img/top.jpg" class="ui centered fluid image"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="ui segment">
+                <h1 class="ui header">Добро пожаловать на ExS Server!</h1>
+                <p> Здесь тебя ждёт увлекательная игра, дружеская атмосфера, опытные админы и
+                многое другое!</p>
+                <h1 class="ui header">Не знаешь, с чего начать?</h1>
+                <div class="ui list" style="margin:auto; width: 50%">
+                    <div class="item">
+                        <i class="grey checkmark icon"></i>
+                        <div class="content">Для начала, установи <a href="http://store.steampowered.com/about/">Steam</a> и <a href="steam://install/304930">Unturned</a></div>
+                    </div>
+                    <div class="item">
+                        <i class="grey checkmark icon"></i>
+                        <div class="content">Затем, <a href="/page/about">выбери сервер</a></div>
+                    </div>
+                    <div class="item">
+                        <i class="green checkmark icon"></i>
+                        <div class="content">И, наконец, погружайся в игру!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{template "footer.html" .}}

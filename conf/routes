@@ -1,0 +1,41 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+
+#####################
+# Controllers begin #
+#####################
+
+# App
+module:testrunner
+GET		/										App.Index
+GET		/steamlogin								App.SteamLogin
+GET		/steamidcallback						App.SteamLoginCallback
+GET		/page/:page								App.Page
+GET		/shutdown								App.Shutdown
+GET		/logout									App.Logout
+GET		/getuser/:SteamID						App.GetUser
+GET		/redeem/:SteamID/:code					App.RedeemCode
+
+# Shop
+GET		/shop									Shop.Index
+
+# Payments
+GET		/payments/create/:SteamID/:Amount		Payments.Create
+POST	/payments/confirm/						Payments.Confirm
+
+# Uploads
+GET		/upload/								Upload.Upload
+
+#####################
+# Controllers end   #
+#####################
+
+# Ignore favicon requests
+GET		/favicon.ico							404
+
+# Map static resources from the /app/public folder to the /public path
+GET		/public/*filepath                       Static.Serve("public")
+
+# Catch all
+#*		/:controller/:action					:controller.:action
+*		/*etc									404

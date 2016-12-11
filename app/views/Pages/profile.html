@@ -1,0 +1,47 @@
+{{template "header.html" .}}
+<style type="text/css">
+    .column {
+        max-width: 450px;
+    }
+
+    body > .grid {
+        height: 100%;
+    }
+</style>
+
+<div class="ui middle aligned center aligned grid">
+    <div class="four wide left aligned column">
+        {{template "player_card.html" .}}
+    </div>
+    <div class="twelve wide left aligned column">
+        <div class="ui segment">
+            <div class="ui relaxed divided list">
+                <div class="item">
+                    <i class="large middle aligned icon"><img src="/public/img/items/Avenger.png" height="auto" width="35px"></i>
+                    <div class="content">
+                        <a class="header">Avenger</a>
+                        <div class="description">An Avenger pistol</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="large middle aligned icon"><img src="/public/img/items/Avenger_13.png" height="auto" width="35px"></i>
+                    <div class="content">
+                        <a class="header">Avenger Magazine</a>
+                        <div class="description">A magazine for the Avenger pistol</div>
+                    </div>
+                </div>
+                <div class="item">
+                <i class="large middle aligned icon"><img src="/public/img/items/Astronaut_Top.png" height="auto" width="35px"></i>
+                <div class="content">
+                    <a class="header">Astronaut Top</a>
+                    <div class="description">Because we can</div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{template "footer.html" .}}

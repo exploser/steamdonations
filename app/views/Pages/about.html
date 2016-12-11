@@ -1,0 +1,25 @@
+{{template "header.html" .}}
+<style type="text/css">
+    body > .grid {
+    }
+
+    body > .segment {
+        min-height: 99%;
+    }
+
+    .column {
+        max-width: 450px;
+    }
+</style>
+<script type="text/javascript" src="/public/js/chart.min.js"></script>
+<div class="ui middle aligned center aligned grid">
+    <div class="ui cards">
+        {{set . "Server" .ServerStatic_1}}
+        {{template "server_card.html" .}}
+        {{set . "Server" .ServerStatic_2}}
+        {{template "server_card.html" .}}
+    </div>
+</div>
+
+
+{{template "footer.html" .}}

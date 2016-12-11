@@ -1,0 +1,85 @@
+<div class="ui small modal">
+    <div class="centered header">Пополнение счёта</div><i class="large close icon"></i>
+    <div class="content">
+        <div class="ui middle aligned center aligned grid">
+            <div class="ui middle aligned center aligned grid">
+                <div class="ui row">
+                    <div class="ui right labeled input">
+                        <div class="ui label"><i class="ruble icon" style="margin:0;"></i></div>
+                        <input type="text" placeholder="Сумма" id="amount">
+                        <div class="ui basic label">.00</div>
+                    </div>
+                </div>
+                <div class="ui row">
+                    <div class="positive ui button" onclick="pay()"><i class="diamond icon"></i>Перейти к оплате</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $('.ui.modal')
+            .modal()
+    ;
+
+    function pay() {
+        var link = "/payments/create/{{.User.SteamID}}/";
+        var amount = $('#amount').val();
+        $.get(link + amount, function (data, status) {
+            if (status == "success") {
+                if (data.slice(0, 5).toLowerCase() != "error")
+                    window.location.href = data;
+                else
+                    alert(data);
+            }
+        });
+    }
+
+    $(function () {
+        /*switch (player.personastate) {
+         case 0:
+         dateText = 'Last online: ' + Date.create(Math.floor(new Date().getTime() / 1000) - player.lastlogoff + ' seconds ago').relative();
+         break;
+         case 1:
+         dateText = 'Online';
+         break;
+         case 2:
+         dateText = 'Busy';
+         break;
+         case 3:
+         dateText = 'Away';
+         break;
+         case 4:
+         dateText = 'Snooze';
+         break;
+         case 5:
+         dateText = 'Looking to trade';
+         break;
+         case 6:*/
+        dateText = 'Looking to play';
+        //break;
+        // }
+    });
+</script>
+<div id="card" class="ui card" style="margin: 10px auto;">
+    <div class="content">
+        <div class="right floated"><a href="{{url "App.Logout"}}"><i class="icon sign out"></i>Logout</a></div>
+        <div class="left floated"><a href="{{.User.ProfileURL}}" target="blank"><i class="icon steam"></i>{{.User.Name}}</a>
+        </div>
+    </div>
+    <div class="image">
+        <img src="{{.User.AvatarFull}}">
+    </div>
+    <div class="content">
+        <div class="right floated">
+            <a onclick="
+                $('.ui.modal')
+                    .modal('show')
+                ;
+            ">Пополнить</a>
+        </div>
+        <i class="money icon"></i>
+        {{.User.Balance}}
+    </div>
+</div>

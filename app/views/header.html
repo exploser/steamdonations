@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>E×S: Unturned Server</title>
+    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/public/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="/public/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/logo.css">
+    <script src="/public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/semantic.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/js/sugar.min.js" type="text/javascript" charset="utf-8"></script>
+
+    {{range .moreStyles}}
+    <link rel="stylesheet" type="text/css" href="/public/{{.}}">
+    {{end}}
+    {{range .moreScripts}}
+    <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+    {{end}}
+    <style type="text/css">
+        body {
+            padding-top: 7em;
+            background-color: #DADADA;
+            overflow-y: scroll !important;
+        }
+        .ui .cards {
+            margin-bottom: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var path;
+            var n = window.location.pathname.indexOf("/", 1);
+
+            if(n == -1)
+                path = window.location.pathname.substring(1);
+            else
+                path = window.location.pathname.substring(1, n);
+
+            if (path == "page") {
+                if (n != -1) {
+                    var m = window.location.pathname.indexOf("/", n + 1);
+
+                    if(m == -1)
+                        path = window.location.pathname.substring(n + 1);
+                    else
+                        path = window.location.pathname.substring(n + 1, m);
+
+                    $('#' + path + '_link').addClass('active');
+                }
+            } else if(path == "shop") {
+                $('#vip_link').addClass('active');
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="ui large following bar fixed inverted menu" style="z-index: 9000;">
+    <div class="ui container">
+        <div class="item">
+            <a href="{{url "App.Index"}}" style="font-size: 1.8em; font-family: 'Liberation Sans', 'Helvetica',
+            'Arial', sans-serif; font-weight: 100;">
+            E×S
+            </a>
+        </div>
+        <a id="about_link" class="item" href="{{url "App.Page" "about"}}">Серверы</a>
+        <a id="rules_link" class="item" href="{{url "App.Page" "rules"}}">Правила</a>
+        <a id="vip_link" class="item" href="{{url "Shop.Index"}}">VIP</a>
+        <a id="vk_link" class="item" href="https://vk.com/exsserver"><i class="vk icon"></i>Группа VK</a>
+        <!--<a id="profile_link" class="item" href="{{url "App.Page" "profile"}}">Личный кабинет</a>-->
+        <div class="right menu">
+            <div class="item">
+                {{$steamid_len := len .User.SteamID}}
+                {{if gt $steamid_len 0}}
+                <div class="ui left labeled button">
+                    <div class="ui basic label">
+                        <i class="steam icon"></i> {{.User.Name}}
+                    </div>
+                    <a class="ui icon red button" href="{{url "App.Logout"}}">
+                    <i class="sign out icon"></i>
+                    </a>
+                </div>
+                {{else}}
+                <a class="ui left labeled button" href="{{url "App.SteamLogin"}}">
+                <div class="ui basic label">
+                    <i class="steam icon"></i> Steam
+                </div>
+                <div class="ui icon green button">
+                    <i class="sign in icon"></i>
+                </div>
+                </a>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</div>
